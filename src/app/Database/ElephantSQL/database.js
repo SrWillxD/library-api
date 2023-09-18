@@ -9,6 +9,8 @@ const sequelize = new Sequelize(process.env.ELEPHANTSQL_URL, {
     dialect: 'postgres',
     define:{
         timestamps: false,
+        underscored: true,
+        underscoredAll: true
     },
 });
 
