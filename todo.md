@@ -4,3 +4,4 @@
 
 - Verificar a viabilidade de mover o teste de conexão sql para a pasta de testes.
 
+- Terminando controller de post de um client 

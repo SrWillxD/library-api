@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../Database/ElephantSQL/database.js';
 
 const Client = sequelize.define('Client', {
-    client_id: {
+    client_id:{
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -16,15 +16,15 @@ const Client = sequelize.define('Client', {
         allowNull: false,
         unique: true
     },
-    password: {
+    password:{
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-    tell: {
+    tell:{
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-    address: {
+    address:{
         type: DataTypes.STRING(255),
         allowNull: false,
     },
