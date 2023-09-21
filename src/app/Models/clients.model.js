@@ -30,3 +30,5 @@ const Client = sequelize.define('Client', {
     },
 },{tableName: 'clients', timestamps: false}
 );
+
+export default Client;
