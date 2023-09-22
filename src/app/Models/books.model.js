@@ -1,4 +1,3 @@
-// models/Book.js
 import { DataTypes } from 'sequelize';
 import sequelize from '../Database/ElephantSQL/database.js';
 import Author from './authors.model.js';
