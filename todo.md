@@ -4,4 +4,8 @@
 
 - Verificar a viabilidade de mover o teste de conexão sql para a pasta de testes.
 
-- Terminando controller de post de um client 
+- Alterar tell para phone.
+
+- Reduzir a quantidade do estoque de um livro quando houver uma compra
+
+- O valor da compra deve ser calculado utilizando o valor dos preços dos livros (talvez não seja possível pois para realizar eu teria de alterar a estrutura do exercício proposto.)
