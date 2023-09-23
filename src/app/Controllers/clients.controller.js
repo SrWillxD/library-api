@@ -20,7 +20,7 @@ const clientsControllerOBJ = {
 
             const newClient = await Client.create({name, email, password, tell, address});
 
-            return res.status(201).json({message: "Success", client: newClient});
+            return res.status(201).json({ client: newClient});
         } catch (err){
             console.error("Error when registering a client", err);
             return res.status(500).json({message: "Internal Server error"});
@@ -32,7 +32,7 @@ const clientsControllerOBJ = {
             const { name, email, password, tell, address } = req.body;
     
             if (!name || !email || !password || !tell || !address) {
-                return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+                return res.status(400).json({ message: 'All fields are mandatory.' });
             }
     
             const existingClient = await Client.findByPk(id);
@@ -49,7 +49,7 @@ const clientsControllerOBJ = {
     
             await existingClient.save();
     
-            return res.status(200).json({message: "Success", client: existingClient});
+            return res.status(200).json({client: existingClient});
         } catch (err) {
             console.error('Error updating client:', err);
             return res.status(500).json({ message: 'Internal Server error.' });
@@ -81,6 +81,18 @@ const clientsControllerOBJ = {
         }catch(err){
             console.error('Error deleting client:', err);
             return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+    async getAllClients(req, res, next){
+        try {
+            const clients = await Client.findAll({
+                attributes: { exclude: ['password'] }
+            });
+
+            return res.status(200).json({ clients });
+        }catch(err){
+            console.error('Error retrieving clients:', err);
+            return res.status(500).json({ message: 'Internal Server Error.' });
         }
     }
 }
