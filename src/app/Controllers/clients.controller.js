@@ -94,6 +94,28 @@ const clientsControllerOBJ = {
             console.error('Error retrieving clients:', err);
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
+    },
+    async getClientById(req, res, next){
+        try {
+            const { client_id } = req.params;
+
+            if(!Number.isInteger(Number(client_id))){
+                return res.status(400).json({ message: 'Invalid client ID. Must be an integer.'});
+            }
+
+            const client = await Client.findByPk(client_id, {
+                attributes: { exclude: ['password'] }
+            });
+
+            if (!client) {
+                return res.status(404).json({ message: 'Client not found.' });
+            }
+
+            return res.status(200).json({ client });
+        }catch(err){
+            console.error('Error retrieving client:', err);
+            return res.status(500).json({ message: 'Internal Server Error.' });
+        }
     }
 }
 

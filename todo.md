@@ -9,3 +9,5 @@
 - Reduzir a quantidade do estoque de um livro quando houver uma compra
 
 - O valor da compra deve ser calculado utilizando o valor dos preços dos livros (talvez não seja possível pois para realizar eu teria de alterar a estrutura do exercício proposto.)
+
+- Padronizar o argumento client_id
