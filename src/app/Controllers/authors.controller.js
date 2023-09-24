@@ -1,4 +1,5 @@
 import Author from '../Models/authors.model.js';
+import Books from '../Models/books.model.js';
 
 const authorsControllerOBJ = {
     async registerAuthor(req, res, next){
@@ -24,7 +25,7 @@ const authorsControllerOBJ = {
         }
     },
     async updateAuthor(req, res, next){
-        try {
+        try{
             const { id } = req.params;
 
             if(!Number.isInteger(Number(id))){
@@ -55,7 +56,37 @@ const authorsControllerOBJ = {
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
     },
-    
+    async deleteAuthor(req, res, next){
+        try {
+            const { author_id } = req.params;
+
+            if(!Number.isInteger(Number(author_id))){
+                return res.status(400).json({ message: 'Invalid author_id. It should be an integer.'});
+            }
+
+            const author = await Author.findByPk(author_id);
+
+            if (!author) {
+                return res.status(404).json({ message: 'Author not found.' });
+            }
+
+            const books = await Books.findAll({ where: { author_id: author_id } });
+
+            if (books.length > 0) {
+                return res.status(400).json({
+                    message: 'Cannot delete author with associated books.',
+                });
+            }
+
+            await Author.destroy({ where: { author_id: author_id } });
+
+            return res.status(200).json();
+        } catch(err){
+            console.error('Error deleting author:', err);
+            return res.status(500).json({ message: 'Internal Server Error.' });
+        }
+    },
+
 }
 
 export default authorsControllerOBJ;

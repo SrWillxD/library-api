@@ -79,7 +79,7 @@ const clientsControllerOBJ = {
 
             await Client.destroy({ where: { client_id } });
 
-            return res.status(200).json({ message: 'Client deleted successfully.' });
+            return res.status(200).json();
         }catch(err){
             console.error('Error deleting client:', err);
             return res.status(500).json({ message: 'Internal server error.' });

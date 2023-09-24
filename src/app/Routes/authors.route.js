@@ -4,5 +4,6 @@ import authorsControllerOBJ from '../Controllers/authors.controller.js'
 
 routes.post('/registerauthor', authorsControllerOBJ.registerAuthor);
 routes.put('/updateauthor/:id', authorsControllerOBJ.updateAuthor);
+routes.delete('/deleteAuthor/:author_id', authorsControllerOBJ.deleteAuthor);
 
 export default routes;
