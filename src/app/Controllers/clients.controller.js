@@ -1,7 +1,5 @@
 import Client from '../Models/clients.model.js';
 import Sale from '../Models/sales.model.js'
-import Author from '../Models/authors.model.js';
-import Book from '../Models/books.model.js';
 
 const clientsControllerOBJ = {
     async registerClient(req, res, next){
