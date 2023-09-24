@@ -115,8 +115,7 @@ const authorsControllerOBJ = {
             console.error('Error fetching author by ID:', err);
             return res.status(500).json({ message: 'Internal Server Error' });
         }
-    },
-
+    }
 }
 
 export default authorsControllerOBJ;
