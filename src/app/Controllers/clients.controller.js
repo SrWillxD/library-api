@@ -28,6 +28,10 @@ const clientsControllerOBJ = {
         try {
             const { id } = req.params;
             const { name, email, password, tell, address } = req.body;
+
+            if(!Number.isInteger(Number(id))){
+                return res.status(400).json({ message: 'Invalid client_id. It should be an integer.'});
+            }
     
             if (!name || !email || !password || !tell || !address) {
                 return res.status(400).json({ message: 'All fields are mandatory.' });
