@@ -86,6 +86,16 @@ const authorsControllerOBJ = {
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
     },
+    async getAllAuthors(req, res) {
+        try{
+            const authors = await Author.findAll();
+
+            return res.status(200).json(authors);
+        }catch(err){
+            console.error('Error fetching authors:', err);
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    },
 
 }
 
