@@ -4,5 +4,6 @@ import booksControllerOBJ from '../Controllers/books.controller.js';
 
 routes.post('/registerbook', booksControllerOBJ.registerBook);
 routes.put('/updatebook/:book_id', booksControllerOBJ.updateBook);
+routes.delete('/deletebook/:book_id', booksControllerOBJ.deleteBook);
 
 export default routes;

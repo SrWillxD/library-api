@@ -50,6 +50,34 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
     },
+    async deleteBook(req, res, next) {
+        try{
+            const { book_id } = req.params;
+
+            if(!Number.isInteger(Number(book_id))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.'});
+            }
+
+            const book = await Book.findByPk(book_id);
+
+            if(!book){
+                return res.status(404).json({ message: 'Book not found.' });
+            }
+
+            const sales = await Sales.findAll({ where: { book_id: book_id } });
+
+            if(sales.length > 0){
+                return res.status(400).json({ message: 'Cannot delete the book. Sales associated with it.' });
+            }
+
+            await book.destroy();
+
+            return res.status(200).json();
+        } catch(err){
+            console.error('Error deleting book:', err);
+            return res.status(500).json({ message: 'Internal Server Error.' });
+        }
+    },
 
 }
 
