@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
-const { MONGO_URL } = process.env;
+import dotenv from 'dotenv';
 
-mongoose.connect(MONGO_URL, {
+dotenv.config();
+
+mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

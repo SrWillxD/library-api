@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
-const { MONGO_URL } = process.env;
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 async function testingMongoDBConnection(){
     try{
-        await mongoose.connect(MONGO_URL, {
+        await mongoose.connect(process.env.MONGODB_URL, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
