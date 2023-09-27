@@ -11,8 +11,8 @@ async function testingMongoDBConnection(){
         });
 
         console.log('🍃🎲 Connected to MongoDB');
-    } catch (error) {
-        console.error('Connection error:', error);
+    }catch(err){
+        console.error('Connection error:', err);
         process.exit(1);
     }
 }
