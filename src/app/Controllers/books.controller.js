@@ -1,4 +1,5 @@
 import Book from '../Models/books.model.js';
+import InfoBooksReview from '../Schemas/review.schema.js';
 import Author from '../Models/authors.model.js';
 import Sales from '../Models/sales.model.js';
 
@@ -78,7 +79,43 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
     },
+    async getBookById(req, res){
+        try {
+            const { bookId } = req.params;
 
+            if(!Number.isInteger(parseInt(bookId))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.' });
+            }
+
+            const postgresqlBook = await Book.findByPk(bookId);
+
+            if(!postgresqlBook){
+                return res.status(404).json({ message: 'Book not found in PostgreSQL.' });
+            }
+
+            const mongodbBook = await InfoBooksReview.findOne({ bookId: bookId });
+
+            if(!mongodbBook){
+                return res.status(404).json({ message: 'Book not found in MongoDB.' });
+            }
+
+            const bookInfo = {
+                bookId: postgresqlBook.book_id,
+                title: postgresqlBook.title,
+                price: postgresqlBook.price,
+                stock: postgresqlBook.stock,
+                description: mongodbBook.description,
+                pages: mongodbBook.pages,
+                publisher: mongodbBook.publisher,
+                reviews: mongodbBook.reviews,
+            };
+
+            return res.status(200).json(bookInfo);
+        }catch(err){
+            console.error('Error fetching book information:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    }
 }
 
 export default booksControllerOBJ;
