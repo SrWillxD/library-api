@@ -13,3 +13,7 @@
 - Padronizar o argumento client_id
 
 - Adicionar ordenação por id quando executar um get.
+
+- (books.controller (getBookById)) ao solicitar o mongoBook, se caso não houver informações cadastradas para o postgresqlBook, retornar um obj vazio e não um erro 404.
+
+- Verificar modo para não aceitar campos vazios ao cadastrar as informações dos livros.

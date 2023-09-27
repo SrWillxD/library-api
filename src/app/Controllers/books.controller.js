@@ -94,21 +94,31 @@ const booksControllerOBJ ={
             }
 
             const mongodbBook = await InfoBooksReview.findOne({ bookId: bookId });
+            console.log(mongodbBook);
+            let bookInfo;
 
             if(!mongodbBook){
-                return res.status(404).json({ message: 'Book not found in MongoDB.' });
-            }
-
-            const bookInfo = {
-                bookId: postgresqlBook.book_id,
-                title: postgresqlBook.title,
-                price: postgresqlBook.price,
-                stock: postgresqlBook.stock,
-                description: mongodbBook.description,
-                pages: mongodbBook.pages,
-                publisher: mongodbBook.publisher,
-                reviews: mongodbBook.reviews,
-            };
+                bookInfo = {
+                    book_id: postgresqlBook.book_id,
+                    title: postgresqlBook.title,
+                    price: postgresqlBook.price,
+                    stock: postgresqlBook.stock,
+                    infos: "empty"
+                };
+            }else(
+                bookInfo = {
+                    book_id: postgresqlBook.book_id,
+                    title: postgresqlBook.title,
+                    price: postgresqlBook.price,
+                    stock: postgresqlBook.stock,
+                    infos: {
+                        description: mongodbBook.description,
+                        pages: mongodbBook.pages,
+                        publisher: mongodbBook.publisher,
+                        reviews: mongodbBook.reviews,
+                    }
+                }
+            )
 
             return res.status(200).json(bookInfo);
         }catch(err){
