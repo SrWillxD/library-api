@@ -3,16 +3,16 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
+function mongoConnection(){
+    mongoose.connect(process.env.MONGODB_URL,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        dbName: 'libraryDB',
+    });
 
-const db = mongoose.connection;
+    const db = mongoose.connection;
+    db.on("error", (error)=>console.error(error));
+    db.once("open", ()=>console.log("🍃🎲 Conected to the database!"));
+}
 
-db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open',()=>{
-    console.log('Connected to MongoDB');
-});
-
-module.exports = mongoose;
+export default mongoConnection;

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+/*import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -18,3 +18,4 @@ async function testingMongoDBConnection(){
 }
 
 export default testingMongoDBConnection;
+*/

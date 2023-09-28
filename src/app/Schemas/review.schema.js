@@ -15,6 +15,6 @@ const bookSchema = new mongoose.Schema({
     reviews: [reviewSchema],
 });
 
-const InfoBooksReview = mongoose.model('Book', bookSchema);
+const InfoBooksReview = mongoose.model('libraryCL', bookSchema);
 
 export default InfoBooksReview;

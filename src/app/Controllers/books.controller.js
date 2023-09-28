@@ -93,8 +93,8 @@ const booksControllerOBJ ={
                 return res.status(404).json({ message: 'Book not found in PostgreSQL.' });
             }
 
-            const mongodbBook = await InfoBooksReview.findOne({ bookId: bookId });
-            console.log(mongodbBook);
+            const mongodbBook = await InfoBooksReview.find({});
+
             let bookInfo;
 
             if(!mongodbBook){
