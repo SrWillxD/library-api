@@ -236,7 +236,30 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
+    async addReview(req, res, next){
+        try{
+            const { bookId, name, grade, review } = req.body;
 
+            if(!Number.isInteger(Number(bookId))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.' });
+            }
+
+            const existingMongoDBBook = await InfoBooksReview.findOne({ bookId: bookId });
+
+            if(!existingMongoDBBook){
+                return res.status(404).json({ message: 'Book with the specified ID does not exist.' });
+            }
+
+            existingMongoDBBook.reviews.push({ name, grade, review });
+
+            await existingMongoDBBook.save();
+
+            return res.status(201).json({});
+        }catch(err){
+            console.error('Error adding review:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    }
 
 
 }
