@@ -287,8 +287,7 @@ const booksControllerOBJ ={
             console.error('Error deleting review:', err);
             return res.status(500).json({ message: 'Internal server error.' });
         }
-    },
-
+    }
 }
 
 export default booksControllerOBJ;
