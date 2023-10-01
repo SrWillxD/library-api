@@ -259,8 +259,35 @@ const booksControllerOBJ ={
             console.error('Error adding review:', err);
             return res.status(500).json({ message: 'Internal server error.' });
         }
-    }
+    },
+    async deleteReview(req, res, next){
+        try{
+            const { bookId, position } = req.params;
 
+            if(!Number.isInteger(Number(bookId)) || !Number.isInteger(Number(position))){
+                return res.status(400).json({ message: 'Invalid book ID or position. Must be integers.' });
+            }
+
+            const existingMongoDBBook = await InfoBooksReview.findOne({ bookId: bookId });
+
+            if(!existingMongoDBBook){
+                return res.status(404).json({ message: 'Book with the specified ID does not exist.' });
+            }
+
+            if(position < 0 || position >= existingMongoDBBook.reviews.length){
+                return res.status(400).json({ message: 'Invalid position, this index does not exist.' });
+            }
+
+            existingMongoDBBook.reviews.splice(position, 1);
+
+            await existingMongoDBBook.save();
+    
+            return res.status(200).json({});
+        } catch(err){
+            console.error('Error deleting review:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
 
 }
 

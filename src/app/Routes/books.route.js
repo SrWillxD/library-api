@@ -12,5 +12,6 @@ routes.post('/addbookinfo', booksControllerOBJ.registerBookInfo);
 routes.put('/updatebookinfo', booksControllerOBJ.updateBookInfo);
 routes.delete('/deletebookinfo/:bookId', booksControllerOBJ.deleteBookInfo);
 routes.post('/addreview', booksControllerOBJ.addReview);
+routes.delete('/deletereview/:bookId/:position', booksControllerOBJ.deleteReview);
 
 export default routes;
