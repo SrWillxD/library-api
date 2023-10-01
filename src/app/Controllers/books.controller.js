@@ -133,7 +133,28 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
+    async getBooksByAuthor(req, res){
+        try{
+            const{ authorId }= req.params;
+
+            if(!Number.isInteger(parseInt(authorId))){
+                return res.status(400).json({ message: 'Invalid author ID. Must be an integer.' });
+            }
+
+            const books = await Book.findAll({ where: { author_id: authorId } });
+
+            if(books.length === 0){
+                return res.status(404).json({ message: 'No books found for the specified author.' });
+            }
+
+            return res.status(200).json({ books });
+        }catch(err){
+            console.error('Error fetching books by author:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
     
+
 }
 
 export default booksControllerOBJ;
