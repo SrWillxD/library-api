@@ -133,7 +133,7 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
-    async getBooksByAuthor(req, res){
+    async getBooksByAuthor(req, res, next){
         try{
             const{ authorId }= req.params;
 
@@ -153,7 +153,43 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
+    async registerBookInfo(req, res, next){
+        try{
+            const { bookId, description, pages, publisher } = req.body;
+
+            if(!Number.isInteger(parseInt(bookId))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.' });
+            }
+
+            const existingBook = await Book.findByPk(bookId);
     
+            if(!existingBook){
+                return res.status(404).json({ message: 'Book with the specified ID does not exist in database.' });
+            }
+
+            const existingMongoDBBook = await InfoBooksReview.findOne({ bookId: bookId });
+
+            if(existingMongoDBBook){
+                return res.status(409).json({ message: 'Book with the specified ID already exists.' });
+            }
+
+            const newBook = new InfoBooksReview({
+                bookId,
+                description,
+                pages,
+                publisher,
+                reviews: [],
+            });
+
+            await newBook.save();
+            return res.status(201).json({ message: 'New book entry created with an empty reviews array.' });
+        }catch(err){
+            console.error('Error registering book info:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+    
+
 
 }
 

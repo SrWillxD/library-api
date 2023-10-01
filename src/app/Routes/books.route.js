@@ -8,5 +8,6 @@ routes.delete('/deletebook/:book_id', booksControllerOBJ.deleteBook);
 routes.get('/getBookbyid/:bookId', booksControllerOBJ.getBookById);
 routes.get('/getallbooks', booksControllerOBJ.getAllBooks);
 routes.get('/getbooksbyauthor/:authorId', booksControllerOBJ.getBooksByAuthor);
+routes.post('/addbookinfo', booksControllerOBJ.registerBookInfo);
 
 export default routes;
