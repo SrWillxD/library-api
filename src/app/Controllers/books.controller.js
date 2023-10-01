@@ -79,7 +79,7 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal Server Error.' });
         }
     },
-    async getBookById(req, res){
+    async getBookById(req, res, next){
         try {
             const { bookId } = req.params;
 
@@ -93,8 +93,7 @@ const booksControllerOBJ ={
                 return res.status(404).json({ message: 'Book not found in PostgreSQL.' });
             }
 
-            const mongodbBook = await InfoBooksReview.find({});
-
+            const mongodbBook = await InfoBooksReview.findOne({bookId: 1});
             let bookInfo;
 
             if(!mongodbBook){
@@ -104,8 +103,8 @@ const booksControllerOBJ ={
                     price: postgresqlBook.price,
                     stock: postgresqlBook.stock,
                     infos: "empty"
-                };
-            }else(
+                }
+            }else{
                 bookInfo = {
                     book_id: postgresqlBook.book_id,
                     title: postgresqlBook.title,
@@ -118,14 +117,23 @@ const booksControllerOBJ ={
                         reviews: mongodbBook.reviews,
                     }
                 }
-            )
-
+            }
             return res.status(200).json(bookInfo);
         }catch(err){
             console.error('Error fetching book information:', err);
             return res.status(500).json({ message: 'Internal server error.' });
         }
-    }
+    }, 
+    async getAllBooks(req, res, next){
+        try{
+            const books = await Book.findAll();
+            return res.status(200).json({ books });
+        }catch(err){
+            console.error('Error fetching all books:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+    
 }
 
 export default booksControllerOBJ;

@@ -6,5 +6,6 @@ routes.post('/registerbook', booksControllerOBJ.registerBook);
 routes.put('/updatebook/:book_id', booksControllerOBJ.updateBook);
 routes.delete('/deletebook/:book_id', booksControllerOBJ.deleteBook);
 routes.get('/getBookbyid/:bookId', booksControllerOBJ.getBookById);
+routes.get('/getallbooks', booksControllerOBJ.getAllBooks);
 
 export default routes;
