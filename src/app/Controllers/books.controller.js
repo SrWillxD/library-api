@@ -214,7 +214,29 @@ const booksControllerOBJ ={
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
-    
+    async deleteBookInfo(req, res, next) {
+        try{
+            const { bookId } = req.params;
+
+            if(!Number.isInteger(Number(bookId))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.' });
+            }
+
+            const existingMongoDBBook = await InfoBooksReview.findOne({ bookId: bookId });
+
+            if(!existingMongoDBBook){
+                return res.status(404).json({ message: 'Book with the specified ID does not exist.' });
+            }
+
+            await existingMongoDBBook.deleteOne({ bookId: bookId });
+
+            return res.status(200).json({});
+        } catch (err) {
+            console.error('Error deleting book info:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+
 
 
 }

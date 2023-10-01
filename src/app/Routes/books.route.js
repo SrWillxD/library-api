@@ -10,5 +10,6 @@ routes.get('/getallbooks', booksControllerOBJ.getAllBooks);
 routes.get('/getbooksbyauthor/:authorId', booksControllerOBJ.getBooksByAuthor);
 routes.post('/addbookinfo', booksControllerOBJ.registerBookInfo);
 routes.put('/updatebookinfo', booksControllerOBJ.updateBookInfo);
+routes.delete('/deletebookinfo/:bookId', booksControllerOBJ.deleteBookInfo);
 
 export default routes;
