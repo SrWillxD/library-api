@@ -39,7 +39,27 @@ const salesControllerOBJ = {
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
+    async getSaleById(req, res, next){
+        try{
+            const { saleId } = req.params;
 
+            if(!Number.isInteger(Number(saleId))){
+                return res.status(400).json({ message: 'Invalid sale ID. Must be an integer.' });
+            }
+
+            const sale = await Sale.findByPk(saleId);
+
+            if(!sale){
+                return res.status(404).json({ message: 'Sale not found.' });
+            }
+
+            return res.status(200).json({ sale });
+        }catch(err){
+            console.error('Error fetching sale:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+    
 }
 
 export default salesControllerOBJ;
