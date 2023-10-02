@@ -99,6 +99,33 @@ const salesControllerOBJ = {
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
+    async getSalesByBook(req, res, next){
+        try{
+            const { bookId } = req.params;
+
+            if(!Number.isInteger(parseInt(bookId))){
+                return res.status(400).json({ message: 'Invalid book ID. Must be an integer.' });
+            }
+
+            const book = await Book.findByPk(bookId);
+
+            if(!book){
+                return res.status(404).json({ message: 'Book not found.' });
+            }
+
+            const sales = await Sale.findAll({ where: { book_id: bookId } });
+
+            if (sales.length === 0) {
+                return res.status(404).json({ message: 'No sales found for the specified book.' });
+            }
+
+            return res.status(200).json({ sales });
+        }catch(err){
+            console.error('Error fetching sales by book:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+
 
 }
 
