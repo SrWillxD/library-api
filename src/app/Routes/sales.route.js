@@ -7,6 +7,7 @@ routes.get('/getsalebyid/:saleId', salesControllerOBJ.getSaleById);
 routes.get('/getallsales', salesControllerOBJ.getAllSales);
 routes.get('/getsalesbyclient/:clientId', salesControllerOBJ.getSalesByClient);
 routes.get('/getsalesbybook/:bookId', salesControllerOBJ.getSalesByBook);
+routes.get('/getsalesbyauthor/:authorId', salesControllerOBJ.getSalesByAuthor);
 
 
 export default routes;

@@ -1,6 +1,7 @@
 import Sale from '../Models/sales.model.js';
 import Book from '../Models/books.model.js';
 import Client from '../Models/clients.model.js';
+import Author from '../Models/authors.model.js';
 
 const salesControllerOBJ = {
     async registerASale(req, res, next) {
@@ -122,6 +123,40 @@ const salesControllerOBJ = {
             return res.status(200).json({ sales });
         }catch(err){
             console.error('Error fetching sales by book:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+    async getSalesByAuthor(req, res, next){
+        try{
+            const { authorId } = req.params;
+
+            if(!Number.isInteger(parseInt(authorId))){
+                return res.status(400).json({ message: 'Invalid author ID. Must be an integer.' });
+            }
+
+            const author = await Author.findByPk(authorId);
+
+            if(!author){
+                return res.status(404).json({ message: 'Author not found.' });
+            }
+
+            const books = await Book.findAll({ where: { author_id: authorId } });
+
+            if(books.length === 0){
+                return res.status(404).json({ message: 'No books found for the specified author.' });
+            }
+
+            const bookIds = books.map((book) => book.book_id);
+
+            const sales = await Sale.findAll({ where: { book_id: bookIds } });
+
+            if(sales.length === 0){
+                return res.status(404).json({ message: 'No sales found for the specified author.' });
+            }
+
+            return res.status(200).json({ sales });
+        }catch(err){
+            console.error('Error fetching sales by author:', err);
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
