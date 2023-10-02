@@ -73,7 +73,33 @@ const salesControllerOBJ = {
             return res.status(500).json({ message: 'Internal server error.' });
         }
     },
-    
+    async getSalesByClient(req, res, next) {
+        try{
+            const { clientId } = req.params;
+
+            if (!Number.isInteger(parseInt(clientId))) {
+                return res.status(400).json({ message: 'Invalid client ID. Must be an integer.' });
+            }
+
+            const client = await Client.findByPk(clientId);
+
+            if(!client){
+                return res.status(404).json({ message: 'Client not found.' });
+            }
+
+            const sales = await Sale.findAll({ where: { client_id: clientId } });
+
+            if(sales.length === 0){
+                return res.status(404).json({ message: 'No sales found for the specified client.' });
+            }
+
+            return res.status(200).json({ sales });
+        }catch(err){
+            console.error('Error fetching sales by client:', err);
+            return res.status(500).json({ message: 'Internal server error.' });
+        }
+    },
+
 }
 
 export default salesControllerOBJ;
