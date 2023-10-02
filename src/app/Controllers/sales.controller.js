@@ -159,9 +159,7 @@ const salesControllerOBJ = {
             console.error('Error fetching sales by author:', err);
             return res.status(500).json({ message: 'Internal server error.' });
         }
-    },
-
-
+    }
 }
 
 export default salesControllerOBJ;
