@@ -6,14 +6,47 @@
 
 - Alterar tell para phone.
 
-- Reduzir a quantidade do estoque de um livro quando houver uma compra
+- Reduzir a quantidade do estoque de um livro quando houver uma compra - FEITO
 
-- O valor da compra deve ser calculado utilizando o valor dos preços dos livros (talvez não seja possível pois para realizar eu teria de alterar a estrutura do exercício proposto.)
+- O valor da compra deve ser calculado utilizando o valor dos preços dos livros (talvez não seja possível pois para realizar eu teria de alterar a estrutura do exercício proposto.) - FEITO
 
 - Padronizar o argumento client_id
 
 - Adicionar ordenação por id quando executar um get.
 
-- (books.controller (getBookById)) ao solicitar o mongoBook, se caso não houver informações cadastradas para o postgresqlBook, retornar um obj vazio e não um erro 404.
+- (books.controller (getBookById)) ao solicitar o mongoBook, se caso não houver informações cadastradas para o postgresqlBook, retornar um obj vazio e não um erro 404. - Não se faz necessário.
 
 - Verificar modo para não aceitar campos vazios ao cadastrar as informações dos livros.
+
+- Os seguintes endpoints somente podem ser acessados pelo usuário admin:
+/registerauthor
+/updateauthor/:id
+/deleteAuthor/:author_id
+getallauthors
+/getauthorbyid/:author_id
+/registerbook
+/updatebook/:book_id
+/deletebook/:book_id
+/getBookbyid/:bookId
+/addbookinfo
+/updatebookinfo
+/deletebookinfo/:bookId
+/deletereview/:bookId/:position
+/registerclient
+/updateclient/:id
+/deleteclient/:client_id
+/getallclients
+/getclientbyid/:client_id
+/getsalebyid/:saleId
+/getallsales
+/getsalesbybook/:bookId
+/getsalesbyauthor/:authorId
+
+
+Restando assim os endpoints que podem ser acessados por usuários ordinarios:
+/getallbooks
+/getBookbyid/:bookId
+/getbooksbyauthor/:authorId
+/addreview
+/registerasale (Somente estar autorizado a registrar uma venda em seu prórpio nome)
+/getsalesbyclient/:clientId (Somente estar autorizado a buscar vendas em seu prorio nome)
