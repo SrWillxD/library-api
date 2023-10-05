@@ -8,9 +8,6 @@ import authorsRoute from '../src/app/Routes/authors.route.js';
 import booksRoute from '../src/app/Routes/books.route.js';
 import salesRoute from '../src/app/Routes/sales.route.js';
 
-//! The admin username and password are hardcoded as it is mandatory guidance for the exercise proposed by the faculty.
-global.adminUser = "admin";
-global.adminPass = "desafio-igti-nodejs"
 
 const port = 3333;
 app.use(cors());
