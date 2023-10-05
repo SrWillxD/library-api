@@ -25,14 +25,14 @@
 getallauthors - FEITO
 /getauthorbyid/:author_id - FEITO
 
-/registerbook
-/updatebook/:book_id
-/deletebook/:book_id
-/getBookbyid/:bookId
-/addbookinfo
-/updatebookinfo
-/deletebookinfo/:bookId
-/deletereview/:bookId/:position
+/registerbook - FEITO
+/updatebook/:book_id - FEITO
+/deletebook/:book_id - FEITO
+/getBookbyid/:bookId - FEITO
+/addbookinfo - FEITO
+/updatebookinfo - FEITO
+/deletebookinfo/:bookId - FEITO
+/deletereview/:bookId/:position - FEITO
 
 /registerclient
 /updateclient/:id
