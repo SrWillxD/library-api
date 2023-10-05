@@ -34,11 +34,11 @@ getallauthors - FEITO
 /deletebookinfo/:bookId - FEITO
 /deletereview/:bookId/:position - FEITO
 
-/registerclient
-/updateclient/:id
-/deleteclient/:client_id
-/getallclients
-/getclientbyid/:client_id
+/registerclient - FEITO
+/updateclient/:id - FEITO
+/deleteclient/:client_id - FEITO
+/getallclients - FEITO
+/getclientbyid/:client_id - FEITO
 
 /getsalebyid/:saleId
 /getallsales
