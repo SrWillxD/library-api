@@ -40,10 +40,10 @@ getallauthors - FEITO
 /getallclients - FEITO
 /getclientbyid/:client_id - FEITO
 
-/getsalebyid/:saleId
-/getallsales
-/getsalesbybook/:bookId
-/getsalesbyauthor/:authorId
+/getsalebyid/:saleId - FEITO
+/getallsales - FEITO
+/getsalesbybook/:bookId - FEITO
+/getsalesbyauthor/:authorId - FEITO
 
 
 Restando assim os endpoints que podem ser acessados por usuários ordinarios:

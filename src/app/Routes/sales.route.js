@@ -1,13 +1,14 @@
 import express from 'express';
 const routes = express.Router();
 import salesControllerOBJ from '../Controllers/sales.controller.js';
+import basicAuthMiddlewareAdmin from '../Middlewares/basicAuthMiddlewareAdmin.js';
 
 routes.post('/registerasale', salesControllerOBJ.registerASale);
-routes.get('/getsalebyid/:saleId', salesControllerOBJ.getSaleById);
-routes.get('/getallsales', salesControllerOBJ.getAllSales);
+routes.get('/getsalebyid/:saleId', basicAuthMiddlewareAdmin, salesControllerOBJ.getSaleById);
+routes.get('/getallsales', basicAuthMiddlewareAdmin, salesControllerOBJ.getAllSales);
 routes.get('/getsalesbyclient/:clientId', salesControllerOBJ.getSalesByClient);
-routes.get('/getsalesbybook/:bookId', salesControllerOBJ.getSalesByBook);
-routes.get('/getsalesbyauthor/:authorId', salesControllerOBJ.getSalesByAuthor);
+routes.get('/getsalesbybook/:bookId', basicAuthMiddlewareAdmin, salesControllerOBJ.getSalesByBook);
+routes.get('/getsalesbyauthor/:authorId', basicAuthMiddlewareAdmin, salesControllerOBJ.getSalesByAuthor);
 
 
 export default routes;
