@@ -19,11 +19,12 @@
 - Verificar modo para não aceitar campos vazios ao cadastrar as informações dos livros.
 
 - Os seguintes endpoints somente podem ser acessados pelo usuário admin:
-/registerauthor
-/updateauthor/:id
-/deleteAuthor/:author_id
-getallauthors
-/getauthorbyid/:author_id
+/registerauthor - FEITO
+/updateauthor/:id - FEITO
+/deleteAuthor/:author_id - FEITO
+getallauthors - FEITO
+/getauthorbyid/:author_id - FEITO
+
 /registerbook
 /updatebook/:book_id
 /deletebook/:book_id
@@ -32,11 +33,13 @@ getallauthors
 /updatebookinfo
 /deletebookinfo/:bookId
 /deletereview/:bookId/:position
+
 /registerclient
 /updateclient/:id
 /deleteclient/:client_id
 /getallclients
 /getclientbyid/:client_id
+
 /getsalebyid/:saleId
 /getallsales
 /getsalesbybook/:bookId
@@ -48,5 +51,6 @@ Restando assim os endpoints que podem ser acessados por usuários ordinarios:
 /getBookbyid/:bookId
 /getbooksbyauthor/:authorId
 /addreview
+
 /registerasale (Somente estar autorizado a registrar uma venda em seu prórpio nome)
 /getsalesbyclient/:clientId (Somente estar autorizado a buscar vendas em seu prorio nome)
