@@ -47,10 +47,10 @@ getallauthors - FEITO
 
 
 Restando assim os endpoints que podem ser acessados por usuários ordinarios:
-/getallbooks
-/getBookbyid/:bookId
-/getbooksbyauthor/:authorId
-/addreview
+/getallbooks - Não necessita de auth
+/getBookbyid/:bookId - Não necessita de auth
+/getbooksbyauthor/:authorId - Não necessita de auth
+/addreview - Não necessita de auth
 
-/registerasale (Somente estar autorizado a registrar uma venda em seu prórpio nome)
-/getsalesbyclient/:clientId (Somente estar autorizado a buscar vendas em seu prorio nome)
+/registerasale (Somente estar autorizado a registrar uma venda em seu prórpio nome) - ADMIN APENAS
+/getsalesbyclient/:clientId (Somente estar autorizado a buscar vendas em seu prorio nome) - ADMIN APENAS
