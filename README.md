@@ -1,4 +1,5 @@
 # Library API 📚✏️
+
 Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 
 ## 💻 Tecnologias utilizadas:
@@ -18,38 +19,46 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 </div>
 
 <div style="display: flex; align-items: center;">
+    <img style="margin: 3px;" width="30" height="30" src="https://img.icons8.com/?size=256&id=kg46nzoJrmTR&format=png">
+    <span>Express-basic-auth</span>
+</div>
+
+<div style="display: flex; align-items: center;">
     <img style="margin: 3px;" width="30" height="30" src="https://img.icons8.com/?size=256&id=krYHMToOzrg7&format=png">
     <span>Nodemon</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    CORS
+    <img style="margin: 3px;" width="30" height="30" src="https://lh3googleusercontentcomhvYImHDFeqlR-EDeOW-8PTNwz5RBau0HG0uvW8nZJjphuN3VNk3tJzutC1zrD2b7RdBf7TJILMOUYFwOP8mBTArHsg=w128-h128-e365-rj-sc0x00ffffff">
+    <span>CORS</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    Dotenv
+    <img style="margin: 3px;" width="30" height="30" src="https://mikestead.gallerycdn.vsassets.io/extensions/mikestead/dotenv/1.0.1/1519894859412/Microsoft.VisualStudio.Services.Icons.Default">
+    <span>Dotenv</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    Pg
+    <img style="margin: 3px;" width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png">
+    <span>Pg</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    ElephantSQL
+    <img style="margin: 3px;" width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1985px-Postgresql_elephant.svg.png">
+    <span>ElephantSQL</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    Mongodb
+    <img style="margin: 3px;" width="30" height="30" src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld">
+    <span>Mongodb</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    Mongoose
+    <img style="margin: 3px;" width="30" height="30" src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld">
+    <span>Mongoose</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    Express-basic-auth
-</div>
-
-<div style="display: flex; align-items: center;">
-    Sequelize
+    <img style="margin: 3px;" width="30" height="30" src="https://cdn.iconscout.com/icon/free/png-256/free-sequelize-2-1175003.png">
+    <span>Sequelize</span>
 </div>
