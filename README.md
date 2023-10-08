@@ -29,7 +29,7 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 </div>
 
 <div style="display: flex; align-items: center;">
-    <img style="margin: 3px;" width="30" height="30" src="https://lh3googleusercontentcomhvYImHDFeqlR-EDeOW-8PTNwz5RBau0HG0uvW8nZJjphuN3VNk3tJzutC1zrD2b7RdBf7TJILMOUYFwOP8mBTArHsg=w128-h128-e365-rj-sc0x00ffffff">
+    <img style="margin: 3px;" width="30" height="30" src="https://addons.mozilla.org/user-media/previews/full/227/227652.png?modified=1622133270">
     <span>CORS</span>
 </div>
 
@@ -49,6 +49,11 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 </div>
 
 <div style="display: flex; align-items: center;">
+    <img style="margin: 3px;" width="30" height="30" src="https://cdn.iconscout.com/icon/free/png-256/free-sequelize-2-1175003.png">
+    <span>Sequelize</span>
+</div>
+
+<div style="display: flex; align-items: center;">
     <img style="margin: 3px;" width="30" height="30" src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld">
     <span>Mongodb</span>
 </div>
@@ -56,9 +61,4 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 <div style="display: flex; align-items: center;">
     <img style="margin: 3px;" width="30" height="30" src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld">
     <span>Mongoose</span>
-</div>
-
-<div style="display: flex; align-items: center;">
-    <img style="margin: 3px;" width="30" height="30" src="https://cdn.iconscout.com/icon/free/png-256/free-sequelize-2-1175003.png">
-    <span>Sequelize</span>
 </div>
