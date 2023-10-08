@@ -4,7 +4,7 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 ## 💻 Tecnologias utilizadas:
 <div style="display: flex; align-items: center;">
 <img style="margin: 9px;" width="30" height="30" src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png">
-Javascript
+<span>Javascript</span>
 </div>
 <div style="display: flex; align-items: center;">
 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
