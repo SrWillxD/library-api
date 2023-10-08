@@ -111,3 +111,42 @@ reviewSchema = ({
     },
 });
 ```
+## 🏁 Endpoints
+### Clients:
+* **localhost:3333/clients...**
+  * ``/registerclient``
+  * ``/updateclient/:id``
+  * ``/deleteclient/:client_id``
+  * ``/getallclients``
+  * ``/getclientbyid/:client_id``
+
+### Authors:
+* **localhost:3333/authors...**
+  * ``/registerauthor``
+  * ``/updateauthor/:id``
+  * ``/deleteAuthor/:author_id``
+  * ``/getallauthors``
+  * ``/getauthorbyid/:author_id``
+
+### Books:
+* **localhost:3333/books...**
+  * ``/registerbook``
+  * ``/updatebook/:book_id``
+  * ``/deletebook/:book_id``
+  * ``/getBookbyid/:bookId``
+  * ``/getallbooks``
+  * ``/getbooksbyauthor/:authorId``
+  * ``/addbookinfo``
+  * ``/updatebookinfo``
+  * ``/deletebookinfo/:bookId``
+  * ``/addreview``
+  * ``/deletereview/:bookId/:position``
+
+### Books:
+* **localhost:3333/books...**
+  * ``/registerasale``
+  * ``/getsalebyid/:saleId``
+  * ``/getallsales``
+  * ``/getsalesbyclient/:clientId``
+  * ``/getsalesbybook/:bookId``
+  * ``/getsalesbyauthor/:authorId``
