@@ -72,3 +72,42 @@ Resolução de um exercício proposto no bootcamp Node.js da instituição IGTI,
 
 ## 📊 Diagrama ER
 ![Alt text](./assets/img/er.png)
+
+## 📋 Schemas
+```js
+bookSchema = ({
+    bookId: {
+        type: Number,
+        required: true,
+    },
+    description: {
+        type: String,
+        required: true,
+    },
+    pages: {
+        type: Number,
+        required: true,
+    },
+    publisher: {
+        type: String,
+        required: true,
+    },
+    reviews: [reviewSchema],
+});
+```
+```js
+reviewSchema = ({
+    name: {
+        type: String,
+        required: true,
+    },
+    grade: {
+        type: Number,
+        required: true,
+    },
+    review: {
+        type: String,
+        required: true,
+    },
+});
+```
