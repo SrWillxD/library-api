@@ -62,3 +62,13 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
     <img style="margin: 3px;" width="30" height="30" src="https://images.crunchbase.com/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/erkxwhl1gd48xfhe2yld">
     <span>Mongoose</span>
 </div>
+
+## 📕 Sobre o projeto
+Resolução de um exercício proposto no bootcamp Node.js da instituição IGTI, foi utilizado um banco SQL e NOSQL, criação dos respectivos endpoints e autenticação de usuário.
+
+## 👀 Observações
+* O arquivo ```.env.example``` deve ser renomeado para ```.env``` e preenchido corretamente com a string de conexão.
+* Para iniciar o projeto, execute o comando ```npm run dev```.
+
+## 📊 Diagrama ER
+![Alt text](./assets/img/er.png)
