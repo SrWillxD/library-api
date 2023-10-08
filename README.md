@@ -14,18 +14,18 @@ Aplicação de estudos com a finalidade de simular uma API de uma livraria.
 </div>
 
 <div style="display: flex; align-items: center;">
-    <img style="margin: 3px;" width="30" height="30" src="https://img.icons8.com/?size=256&id=kg46nzoJrmTR&format=png">
-    <span>Express.js</span>
+        <img style="margin: 3px;" width="30" height="30" src="https://media.trustradius.com/product-logos/EB/Rv/EHN55E9OR8W7.JPEG">
+        <span>Express.js</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    <img style="margin: 3px;" width="30" height="30" src="https://img.icons8.com/?size=256&id=kg46nzoJrmTR&format=png">
-    <span>Express-basic-auth</span>
+        <img style="margin: 3px;" width="30" height="30" src="https://media.trustradius.com/product-logos/EB/Rv/EHN55E9OR8W7.JPEG">
+        <span>Express-basic-auth</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-    <img style="margin: 3px;" width="30" height="30" src="https://img.icons8.com/?size=256&id=krYHMToOzrg7&format=png">
-    <span>Nodemon</span>
+        <img style="margin: 3px;" width="30" height="30" src="https://static-00.iconduck.com/assets.00/nodemon-icon-449x512-m36gnbqo.png">
+        <span>Nodemon</span>
 </div>
 
 <div style="display: flex; align-items: center;">
