@@ -4,9 +4,9 @@ import Books from '../Models/books.model.js';
 const authorsControllerOBJ = {
     async registerAuthor(req, res, next){
         try {
-            const { name, email, tell } = req.body;
+            const { name, email, phone } = req.body;
 
-            if(!name || !email || !tell){
+            if(!name || !email || !phone){
                 return res.status(400).json({ message: 'All fields are mandatory.' });
             }
 
@@ -16,7 +16,7 @@ const authorsControllerOBJ = {
                 return res.status(400).json({ message: 'An author with this email already exists.' });
             }
 
-            const newAuthor = await Author.create({ name, email, tell });
+            const newAuthor = await Author.create({ name, email, phone });
 
             return res.status(201).json({ author: newAuthor });
         } catch(err){
@@ -32,9 +32,9 @@ const authorsControllerOBJ = {
                 return res.status(400).json({ message: 'Invalid author_id. It should be an integer.'});
             }
 
-            const { name, email, tell } = req.body;
+            const { name, email, phone } = req.body;
 
-            if (!name || !email || !tell) {
+            if (!name || !email || !phone) {
                 return res.status(400).json({ message: 'All fields are mandatory.' });
             }
 
@@ -46,7 +46,7 @@ const authorsControllerOBJ = {
 
             existingAuthor.name = name;
             existingAuthor.email = email;
-            existingAuthor.tell = tell;
+            existingAuthor.phone = phone;
 
             await existingAuthor.save();
 

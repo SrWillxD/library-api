@@ -20,7 +20,7 @@ const Client = sequelize.define('Client', {
         type: DataTypes.STRING(255),
         allowNull: false,
     },
-    tell:{
+    phone:{
         type: DataTypes.STRING(255),
         allowNull: false,
     },

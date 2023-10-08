@@ -16,7 +16,7 @@ const Author = sequelize.define('Author', {
         allowNull: false,
         unique: true,
     },
-    tell: {
+    phone: {
         type: DataTypes.STRING(20),
         allowNull: false,
     },

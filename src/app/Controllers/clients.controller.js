@@ -4,9 +4,9 @@ import Sale from '../Models/sales.model.js'
 const clientsControllerOBJ = {
     async registerClient(req, res, next){
         try {
-            const { name, email, password, tell, address } = req.body;
+            const { name, email, password, phone, address } = req.body;
 
-            if(!name || !email || !password || !tell || !address){
+            if(!name || !email || !password || !phone || !address){
                 return res.status(400).json({message:"All fields are mandatory"});
             }
 
@@ -16,7 +16,7 @@ const clientsControllerOBJ = {
                 return res.status(400).json({message: "There is already a customer registered with this email."});
             }
 
-            const newClient = await Client.create({name, email, password, tell, address});
+            const newClient = await Client.create({name, email, password, phone, address});
 
             return res.status(201).json({ client: newClient});
         } catch (err){
@@ -27,13 +27,13 @@ const clientsControllerOBJ = {
     async updateClient(req, res, next){
         try {
             const { id } = req.params;
-            const { name, email, password, tell, address } = req.body;
+            const { name, email, password, phone, address } = req.body;
 
             if(!Number.isInteger(Number(id))){
                 return res.status(400).json({ message: 'Invalid client_id. It should be an integer.'});
             }
     
-            if (!name || !email || !password || !tell || !address) {
+            if (!name || !email || !password || !phone || !address) {
                 return res.status(400).json({ message: 'All fields are mandatory.' });
             }
     
@@ -46,7 +46,7 @@ const clientsControllerOBJ = {
             existingClient.name = name;
             existingClient.email = email;
             existingClient.password = password;
-            existingClient.tell = tell;
+            existingClient.phone = phone;
             existingClient.address = address;
     
             await existingClient.save();
