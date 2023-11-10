@@ -142,8 +142,8 @@ reviewSchema = ({
   * ``/addreview``
   * ``/deletereview/:bookId/:position``
 
-### Books:
-* **localhost:3333/books...**
+### Sales:
+* **localhost:3333/sales...**
   * ``/registerasale``
   * ``/getsalebyid/:saleId``
   * ``/getallsales``
